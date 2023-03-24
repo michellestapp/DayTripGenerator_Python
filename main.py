@@ -27,40 +27,45 @@ entertainments = ['movie','bar','aquarium','amusment park', 'pool','luau']
 
 import random
 
+def print_current_choices(dest, rest, tran,enter):
+    print(f"  Your amazing day trip will go to {dest} by {tran}. \n  You will eat at {rest} and then go to the {enter}.")
+
+happy_with_choices = 'n'
+
 destination = random.choice(destinations)
 restaurant = random.choice(restaurants)
 transportation = random.choice(transportations)
 entertainment = random.choice(entertainments)
 
-print(f"Your amazing day trip will go to {destination} by {transportation}. You will eat at {restaurant} and then go to the {entertainment}.")
 
-happy_with_choices = input("Are you happy with the trip that has been created for you? Press 'y' if you are or 'n' if not:  ")
+
 
 while happy_with_choices == 'n':
-     
+
+    print_current_choices(destination, restaurant, transportation,entertainment)
+    happy_with_choices = input("Are you happy with the trip that has been created for you? Press 'y' if you are or 'n' if not:  ")
+
+    if happy_with_choices == 'y':
+        break
+
     which_to_change = input(f"Which would you like to change? \n Press 1 for destination \n Press 2 for transportation \n Press 3 for restaurant \n Press 4 for entertainment: ")
 
-    if which_to_change == 1:
+    if which_to_change == '1':
         destination = random.choice(destinations)
-        print(f"Your amazing day trip will go to {destination} by {transportation}. You will eat at {restaurant} and then go to the {entertainment}.")
-        happy_with_choices = input("Are you happy with the trip that has been created for you? Press 'y' if you are or 'n' if not:  ")
-
-    elif which_to_change == 2:
+ 
+    elif which_to_change == '2':
         transportation = random.choice(transportations)
-        happy_with_choices = input("Are you happy with the trip that has been created for you? Press 'y' if you are or 'n' if not:  ")
-    
-    elif which_to_change == 3:
+       
+    elif which_to_change == '3':
         restaurant = random.choice(restaurants)
-        happy_with_choices = input("Are you happy with the trip that has been created for you? Press 'y' if you are or 'n' if not:  ")
-  
-    elif which_to_change == 3:
+       
+    elif which_to_change == '4':
         entertainment = random.choice(entertainments)
-        happy_with_choices = input("Are you happy with the trip that has been created for you? Press 'y' if you are or 'n' if not:  ")
-  
+      
     else:
         print("I did not understand your input.")
-        happy_with_choices = input("Are you happy with the trip that has been created for you? Press 'y' if you are or 'n' if not:  ")
-
+        
+    
 
 
 
