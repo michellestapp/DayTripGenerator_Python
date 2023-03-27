@@ -71,28 +71,34 @@ while happy_with_choices == 'n':
     if happy_with_choices == 'y':
         break
 
-    choice_number = input(f"Which would you like to change? \n Press 1 for destination \n Press 2 for transportation \n Press 3 for restaurant \n Press 4 for entertainment: ")
+    elif happy_with_choices == "n":
+        choice_number = input(f" Which would you like to change? \n Press 1 for destination \n Press 2 for transportation \n Press 3 for restaurant \n Press 4 for entertainment: ")
    
-    if choice_number == '1':
-        destination = random.choice(destinations)
+        if choice_number == '1':
+            destination = random.choice(destinations)
         
  
-    elif choice_number == '2':
-        transportation = random.choice(transportations)
+        elif choice_number == '2':
+            transportation = random.choice(transportations)
        
        
-    elif choice_number == '3':
-        restaurant = random.choice(restaurants)
+        elif choice_number == '3':
+            restaurant = random.choice(restaurants)
         
        
-    elif choice_number == '4':
-        entertainment = random.choice(entertainments)
+        elif choice_number == '4':
+            entertainment = random.choice(entertainments)
        
       
+        else:
+            print(" I did not understand your input.")
+    
     else:
-        print("I did not understand your input.")
+        print(" Please enter 'y' for yes or 'n' for no")
+        happy_with_choices = "n"
  
     
+
 print(f"\n   HAVE A GREAT TRIP!!!  \n")
         
     
