@@ -23,79 +23,63 @@ destinations = ['Puerto Vallarta', 'Chicago', 'Albuquerque', 'New york City', 'O
 restaurants = ['Cracker Barrel', 'Olive Garden', 'IHOP', 'Golden Corral', 'Mi Lupita', 'Los Cuates', 'The Frontier']
 transportations = ['air','car','carriage','bus', 'limo', 'walking']
 entertainments = ['movie','bar','aquarium','amusment park', 'pool','luau']
+options = [destinations, transportations, restaurants, entertainments]
+
 
 
 import random
 
-# def changes_to_trip(choice_number):
-    
-    # if choice_number == '1':
-    #     destination = random.choice(destinations)
-    #     return destination
- 
-    # elif choice_number == '2':
-    #     transportation = random.choice(transportations)
-    #     return transportation
-       
-    # elif choice_number == '3':
-    #     restaurant = random.choice(restaurants)
-    #     print(restaurant)
-    #     return restaurant
-       
-    # elif choice_number == '4':
-    #     entertainment = random.choice(entertainments)
-    #     return entertainment
-      
-    # else:
-    #     print("I did not understand your input.")
 
-
-def print_current_choices(dest, rest, tran,enter):
-    print(f"\n  Your amazing day trip will go to {dest} by {tran}. \n  You will eat at {rest} and then go to the {enter}.\n")
+def print_current_choices(options):
+    print(f"\n  Your amazing day trip will go to {options[0]} by {options[1]}. \n  You will eat at {options[2]} and then go to the {options[3]}.\n")
 
 happy_with_choices = 'n'
 
-destination = random.choice(destinations)
-restaurant = random.choice(restaurants)
-transportation = random.choice(transportations)
-entertainment = random.choice(entertainments)
+def select_options():
+    destination = random.choice(destinations)
+    transportation = random.choice(transportations)
+    restaurant = random.choice(restaurants)
+    entertainment = random.choice(entertainments)
+    return [destination,transportation, restaurant, entertainment]
 
 
+
+daytrip = select_options()
 
 
 while happy_with_choices == 'n':
+    print_current_choices(daytrip)
 
-    print_current_choices(destination, restaurant, transportation,entertainment)
     happy_with_choices = input(f"\n  Are you happy with the trip that has been created for you? Press 'y' if you are or 'n' if not:  ")
 
     if happy_with_choices == 'y':
         break
 
-    elif happy_with_choices == "n":
+    else:
         choice_number = input(f" Which would you like to change? \n Press 1 for destination \n Press 2 for transportation \n Press 3 for restaurant \n Press 4 for entertainment: ")
-   
-        if choice_number == '1':
-            destination = random.choice(destinations)
+        index = int(choice_number) - 1
+        daytrip[index] = random.choice(options[index])
+
+        # if choice_number == '1':
+        #     destination = random.choice(destinations)
         
  
-        elif choice_number == '2':
-            transportation = random.choice(transportations)
+        # elif choice_number == '2':
+        #     transportation = random.choice(transportations)
        
        
-        elif choice_number == '3':
-            restaurant = random.choice(restaurants)
+        # elif choice_number == '3':
+        #     restaurant = random.choice(restaurants)
         
        
-        elif choice_number == '4':
-            entertainment = random.choice(entertainments)
+        # elif choice_number == '4':
+        #     entertainment = random.choice(entertainments)
        
       
-        else:
-            print(" I did not understand your input.")
+        # else:
+        #     print(" I did not understand your input.")
     
-    else:
-        print(" Please enter 'y' for yes or 'n' for no")
-        happy_with_choices = "n"
+
  
     
 
