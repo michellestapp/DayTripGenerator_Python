@@ -70,6 +70,7 @@ while happy_with_choices == 'n':
         happy_with_choices = 'n'
 
 print(f"\n   HAVE A GREAT TRIP!!!  \n")
+
         
     
 
