@@ -42,46 +42,32 @@ def select_options():
     entertainment = random.choice(entertainments)
     return [destination,transportation, restaurant, entertainment]
 
+def change_choice():
+    choice_number = input(f" Which would you like to change? \n Press 1 for destination \n Press 2 for transportation \n Press 3 for restaurant \n Press 4 for entertainment: ")
+    index = int(choice_number) - 1
+    if index in range(3):
+        daytrip[index] = random.choice(options[index])
+    else:
+        print("\n  The option you picked is not available.")
+        
 
+def happy():
+    happy = input(f"\n  Are you happy with the trip that has been created for you? Press 'y' if you are or 'n' if not:  ")
+    return happy
 
 daytrip = select_options()
 
 
 while happy_with_choices == 'n':
     print_current_choices(daytrip)
-
-    happy_with_choices = input(f"\n  Are you happy with the trip that has been created for you? Press 'y' if you are or 'n' if not:  ")
+    happy_with_choices = happy()
 
     if happy_with_choices == 'y':
         break
 
     else:
-        choice_number = input(f" Which would you like to change? \n Press 1 for destination \n Press 2 for transportation \n Press 3 for restaurant \n Press 4 for entertainment: ")
-        index = int(choice_number) - 1
-        daytrip[index] = random.choice(options[index])
-
-        # if choice_number == '1':
-        #     destination = random.choice(destinations)
-        
- 
-        # elif choice_number == '2':
-        #     transportation = random.choice(transportations)
-       
-       
-        # elif choice_number == '3':
-        #     restaurant = random.choice(restaurants)
-        
-       
-        # elif choice_number == '4':
-        #     entertainment = random.choice(entertainments)
-       
-      
-        # else:
-        #     print(" I did not understand your input.")
-    
-
- 
-    
+        change_choice()
+        happy_with_choices = 'n'
 
 print(f"\n   HAVE A GREAT TRIP!!!  \n")
         
