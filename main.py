@@ -14,7 +14,7 @@
 #             transportation, and/or form of entertainment if I don’t like one or more of those things.
 # DONE (10 points): As a user, I want to be able to confirm that my day trip is “complete” once I like all of 
 #             the random selections.
-# (10  points): As a user, I want to display my completed trip in the console
+# DONE (10  points): As a user, I want to display my completed trip in the console
 # (5 points): Single Responsibility: As a developer, I want all of my functions to have a Single Responsibility. 
 #             Remember, each function should do just one thing! 
 
@@ -30,9 +30,6 @@ options = [destinations, transportations, restaurants, entertainments]
 import random
 
 
-def print_current_choices(options):
-    print(f"\n  Your amazing day trip will go to {options[0]} by {options[1]}. \n  You will eat at {options[2]} and then go to the {options[3]}.\n")
-
 happy_with_choices = 'n'
 
 def select_options():
@@ -41,6 +38,10 @@ def select_options():
     restaurant = random.choice(restaurants)
     entertainment = random.choice(entertainments)
     return [destination,transportation, restaurant, entertainment]
+
+
+def print_current_choices(options):
+    print(f"\n  Your amazing day trip will go to {options[0]} by {options[1]}. \n  You will eat at {options[2]} and then go to the {options[3]}.\n")
 
 def change_choice():
     choice_number = input(f" Which would you like to change? \n Press 1 for destination \n Press 2 for transportation \n Press 3 for restaurant \n Press 4 for entertainment: ")
